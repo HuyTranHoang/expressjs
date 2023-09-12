@@ -1,9 +1,6 @@
 import * as express from 'express'
-import * as path from 'path'
-import {fileURLToPath} from 'url'
 import db from '../common/connectDB.js'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const router = express.Router()
 
 router.get('/', (req, res) => {
