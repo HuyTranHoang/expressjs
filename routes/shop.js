@@ -1,10 +1,10 @@
 import * as express from 'express'
-import * as path from 'path'
-import {fileURLToPath} from 'url'
+// import * as path from 'path'
+// import {fileURLToPath} from 'url'
 
 import {products} from './admin.js'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const router = express.Router()
 
