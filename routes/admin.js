@@ -16,7 +16,7 @@ router.post('/add-product', (req, res) => {
             res.status(500).send('Error inserting record') // Handle the error gracefully
         } else {
             console.log('1 record inserted')
-            res.redirect('/?success=true');
+            res.redirect('/?success=true')
         }
     })
 })
@@ -39,14 +39,17 @@ router.post('/product', (req, res) => {
     res.redirect('/')
 })
 
-router.get('/product/delete/:id', (req, res) => {
+router.post('/product/delete/:id', (req, res) => {
     const id = req.params.id
     const sql = `DELETE FROM products WHERE id = ${id}`
     db.query(sql, function (err) {
         if (err) throw err
         console.log('1 record deleted')
     })
-    res.redirect('/')
+    // res.redirect('/')
+    res.json({
+        'success': 'Product deleted'
+    })
 })
 
 export default router

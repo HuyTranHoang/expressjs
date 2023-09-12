@@ -5,13 +5,13 @@
             <p class="text-white">List all my product</p>
             <ul class="p-0">
                 <% products.forEach((product) => { %>
-                    <li class="text-white d-flex justify-content-between">
+                    <li class="text-white d-flex justify-content-between product-item">
                         <%= product.name %>
                         <div>
                             <a href="/admin/product/<%= product.id %>" class="link-dark me-3">
                                 <i class="fa-solid fa-pen"></i></a>
-                            <a href="/admin/product/delete/<%= product.id %>" class="link-dark">
-                                <i class="fa-solid fa-trash"></i></a>
+                            <button class="delete-product" data-id="<%= product.id %>">
+                                <i class="fa-solid fa-trash"></i></button>
                         </div>
                     </li>
                 <% }) %>
@@ -31,3 +31,7 @@
         })
     </script>
 <% } %>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script type="module" src="/js/shopScript.js"></script>

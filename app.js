@@ -19,10 +19,12 @@ app.set('view engine', 'ejs')
 app.set('views', 'views')
 
 app.use(expressLayouts)
+app.set('layout extractScripts', true)
 
 // app.use('/css', express.static(path.join(__dirname, 'node_modules', 'bootstrap', 'dist', 'css')))
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
-
+app.use('/js', express.static(__dirname + '/public/js'))
+app.use('/sweetalert2', express.static(__dirname + '/node_modules/sweetalert2/dist'))
 app.use((req, res, next) => {
     req.active = req.url
     next()
