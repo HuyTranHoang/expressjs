@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2460e200-2ef9-45cf-9ee4-6f7bc9f172cf" name="Changes" comment="up">
+      <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="mysql" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1694492807" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="mysql" />
+                    <option name="lastUsedInstant" value="1694492784" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="adf172eb-73ed-4724-b64e-a9d570667ec8" />
+        <option name="url" value="git@github.com:HuyTranHoang/expressjs.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2V1YzjEqAgJMvjvCjNQjvohP3Bz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "mysql",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.nodejs.core.library.configured.version": "16.20.2",
+    "javascript.nodejs.core.library.typings.version": "16.18.48",
+    "last_opened_file_path": "D:/Aptech/Nodejs/expressjs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "terminal",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Aptech\Nodejs\buoi3\views\error" />
+      <recent name="D:\Aptech\Nodejs\buoi1" />
+      <recent name="D:\Aptech\Nodejs\buoi1\route" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.test" />
+        <item itemvalue="npm.test" />
+        <item itemvalue="npm.test" />
+        <item itemvalue="npm.test" />
+        <item itemvalue="npm.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2460e200-2ef9-45cf-9ee4-6f7bc9f172cf" name="Changes" comment="" />
+      <created>1694005318803</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694005318803</updated>
+      <workItem from="1694005320168" duration="799000" />
+      <workItem from="1694006161497" duration="4655000" />
+      <workItem from="1694017486954" duration="24000" />
+      <workItem from="1694017878159" duration="229000" />
+      <workItem from="1694022850396" duration="163000" />
+      <workItem from="1694028073746" duration="1245000" />
+      <workItem from="1694029341393" duration="411000" />
+      <workItem from="1694045743416" duration="421000" />
+      <workItem from="1694110213744" duration="81000" />
+      <workItem from="1694110706503" duration="50000" />
+      <workItem from="1694110764009" duration="56000" />
+      <workItem from="1694110829073" duration="25000" />
+      <workItem from="1694110863703" duration="18000" />
+      <workItem from="1694110950039" duration="49000" />
+      <workItem from="1694111008020" duration="38000" />
+      <workItem from="1694111055501" duration="30000" />
+      <workItem from="1694111095281" duration="20000" />
+      <workItem from="1694111124568" duration="34000" />
+      <workItem from="1694111167640" duration="17000" />
+      <workItem from="1694111232709" duration="44000" />
+      <workItem from="1694111332895" duration="26000" />
+      <workItem from="1694111368246" duration="101000" />
+      <workItem from="1694111479131" duration="33000" />
+      <workItem from="1694111520691" duration="28000" />
+      <workItem from="1694111556933" duration="29000" />
+      <workItem from="1694111592973" duration="17000" />
+      <workItem from="1694111617802" duration="14000" />
+      <workItem from="1694111640198" duration="19000" />
+      <workItem from="1694111667290" duration="26000" />
+      <workItem from="1694111701323" duration="107000" />
+      <workItem from="1694111817481" duration="43000" />
+      <workItem from="1694111867968" duration="50000" />
+      <workItem from="1694111928624" duration="11000" />
+      <workItem from="1694111949009" duration="10000" />
+      <workItem from="1694111975536" duration="399000" />
+      <workItem from="1694112385460" duration="16000" />
+      <workItem from="1694112408729" duration="123000" />
+      <workItem from="1694112541676" duration="14000" />
+      <workItem from="1694112563627" duration="9000" />
+      <workItem from="1694112637392" duration="35000" />
+      <workItem from="1694112679353" duration="314000" />
+      <workItem from="1694182170711" duration="469000" />
+      <workItem from="1694234253605" duration="238000" />
+      <workItem from="1694234503069" duration="152000" />
+      <workItem from="1694234668211" duration="44000" />
+      <workItem from="1694234721159" duration="26000" />
+      <workItem from="1694234757753" duration="918000" />
+      <workItem from="1694412992081" duration="100000" />
+      <workItem from="1694436928669" duration="6068000" />
+      <workItem from="1694448699511" duration="1296000" />
+      <workItem from="1694450015772" duration="1613000" />
+      <workItem from="1694453513347" duration="712000" />
+      <workItem from="1694454238996" duration="85000" />
+      <workItem from="1694454332964" duration="127000" />
+      <workItem from="1694454469137" duration="81000" />
+      <workItem from="1694454558939" duration="586000" />
+      <workItem from="1694455168921" duration="157000" />
+      <workItem from="1694455333971" duration="420000" />
+      <workItem from="1694455765702" duration="209000" />
+      <workItem from="1694482566379" duration="232000" />
+      <workItem from="1694482808566" duration="668000" />
+      <workItem from="1694483509206" duration="5921000" />
+      <workItem from="1694489682089" duration="714000" />
+      <workItem from="1694490414474" duration="9000" />
+      <workItem from="1694490434121" duration="96000" />
+      <workItem from="1694490540579" duration="2165000" />
+    </task>
+    <task id="LOCAL-00001" summary="up">
+      <option name="closed" value="true" />
+      <created>1694490074427</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694490074427</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TerminalProjectNonSharedOptionsProvider">
+    <option name="startingDirectory" value="D:\Aptech\Nodejs\expressjs\" />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init" />
+    <MESSAGE value="up" />
+    <option name="LAST_COMMIT_MESSAGE" value="up" />
+  </component>
+</project>
