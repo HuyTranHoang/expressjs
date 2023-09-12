@@ -3,11 +3,31 @@
         <div class="col-4 p-3 bg-secondary rounded">
             <h1 class="text-white">My products</h1>
             <p class="text-white">List all my product</p>
-            <ul>
+            <ul class="p-0">
                 <% products.forEach((product) => { %>
-                    <li class="text-white"><%= product.name %></li>
+                    <li class="text-white d-flex justify-content-between">
+                        <%= product.name %>
+                        <div>
+                            <a href="/admin/product/<%= product.id %>" class="link-dark me-3">
+                                <i class="fa-solid fa-pen"></i></a>
+                            <a href="/admin/product/delete/<%= product.id %>" class="link-dark">
+                                <i class="fa-solid fa-trash"></i></a>
+                        </div>
+                    </li>
                 <% }) %>
             </ul>
         </div>
     </div>
 </main>
+
+<% if (showAlert) { %>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'New product inserted',
+            showConfirmButton: false,
+            timer: 1500 // Close the alert after 1.5 seconds
+        })
+    </script>
+<% } %>

@@ -32,7 +32,7 @@ app.use('/admin', adminRouter)
 app.use(shopRouter)
 
 app.use((req, res) => {
-    res.status(404).render('error/404', { active: "", title: "404"})
+    res.status(404).render('error/404', {active: '', title: '404'})
 })
 
 app.listen(port, () => {
