@@ -7,13 +7,15 @@ class ProductController {
         db.query('SELECT * FROM products', (err, results) => {
             if (err) console.log('Lỗi khi query')
             const success = req.query.success === 'true'
-            res.render('product', {products: results, active: req.active, title: 'Home page', showAlert: success})
+            const loginAlert = req.query.li === 'true'
+            const logoutAlert = req.query.lo === 'true'
+            res.render('product', {products: results, title: 'Home page', showAlert: success, loginAlert, logoutAlert})
         })
     }
 
     // [Get] - /admin/product/create
     create(req, res) {
-        res.render('add-product', {active: req.active, title: 'Add product'})
+        res.render('add-product', {title: 'Add product'})
     }
 
     // [POST] - /admin/product
@@ -36,7 +38,7 @@ class ProductController {
         const sql = `SELECT * FROM products WHERE id = ${id}`
         db.query(sql, function (err, result) {
             if (err) console.log('Lỗi khi query')
-            res.render('edit-product', {active: req.active, title: 'Edit product', product: result[0]})
+            res.render('edit-product', {title: 'Edit product', product: result[0]})
         })
     }
 

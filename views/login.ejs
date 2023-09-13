@@ -1,0 +1,25 @@
+<main class="mt-3 container">
+    <div class="row justify-content-center">
+        <div class="col-4 p-3 bg-dark-subtle rounded">
+            <h1>Sign in</h1>
+            <hr>
+
+            <% if (isFailed) { %>
+                <div class="alert alert-danger" role="alert">
+                    * Wrong username/password!
+                </div>
+            <% } %>
+
+            <form action="/login" method="POST">
+                <label class="form-label text-dark" for="username">Username</label>
+                <input class="form-control mb-3" type="text" id="username" name="username"/>
+
+                <label class="form-label text-dark" for="password">Password</label>
+                <input class="form-control mb-3" type="password" id="password" name="password"/>
+
+                <button class="btn btn-primary float-end w-25" type="submit">Login</button>
+            </form>
+
+        </div>
+    </div>
+</main>

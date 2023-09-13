@@ -49,6 +49,34 @@
     </script>
 <% } %>
 
+<% if (loginAlert) { %>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Signed in successfully',
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+        })
+    </script>
+<% } %>
+
+<% if (logoutAlert) { %>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Signed out successfully',
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+        })
+    </script>
+<% } %>
+
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script type="module" src="/js/shopScript.js"></script>

@@ -1,5 +1,4 @@
 import * as express from 'express'
-import db from '../common/connectDB.js'
 import ProductController from '../controllers/ProductController.js'
 
 const router = express.Router()

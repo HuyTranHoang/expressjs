@@ -19,7 +19,9 @@ $(function () {
                             title: 'Success!',
                             text: 'Product deleted successfully!',
                             showConfirmButton: false,
-                            timer: 1500
+                            timer: 1000
+                        }).then(() => {
+                            window.location.href = '/'
                         })
                         button.closest('.product-item').remove()
                     },
