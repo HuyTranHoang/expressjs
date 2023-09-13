@@ -1,13 +1,13 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Expressjs</a>
+            <a class="navbar-brand" href="/">Expressjs</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link <%= active === "/" ? "active" : ""%>" aria-current="page" href="/">
                             <i class="fa-solid fa-house"></i> Shop</a>
@@ -16,6 +16,21 @@
                         <a class="nav-link <%= active === "/admin/add-product" ? "active" : ""%>" href="/admin/add-product">
                             <i class="fa-solid fa-plus"></i> Add product</a>
                     </li>
+                    <% if (username) {%>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Hello, <%= username%>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            </ul>
+                        </li>
+                    <% } else {%>
+                        <li class="nav-item">
+                            <a class="nav-link <%= active === "/login" ? "active" : ""%>" href="/login">
+                                <i class="fas fa-sign-in-alt"></i> Login</a>
+                        </li>
+                    <% }%>
                 </ul>
             </div>
         </div>

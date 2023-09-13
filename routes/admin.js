@@ -1,22 +1,16 @@
 import * as express from 'express'
+import ProductController from '../controllers/ProductController.js'
 
 const router = express.Router()
 
-const products = []
+router.get('/add-product', ProductController.create)
 
-router.get('/add-product', (req, res) => {
-    res.render('add-product', {active: req.active, title: 'Add product'})
-})
+router.post('/add-product', ProductController.store)
 
-router.post('/add-product', (req, res) => {
-    products.push({
-        title: req.body.title
-    })
-    res.redirect('/')
-})
+router.get('/product/:id/edit', ProductController.edit)
+
+router.put('/product/:id',  ProductController.update)
+
+router.delete('/product/:id', ProductController.destroy)
 
 export default router
-
-export {
-    products
-}
