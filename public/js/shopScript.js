@@ -1,4 +1,6 @@
-$(document).ready(function () {
+/* global Swal */
+
+$(function () {
     $('.delete-product').on('click', function () {
         const productId = $(this).data('id')
         const button = $(this)
@@ -9,8 +11,8 @@ $(document).ready(function () {
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    type: 'POST',
-                    url: `/admin/product/delete/${productId}`,
+                    type: 'DELETE',
+                    url: `/admin/product/${productId}`,
                     success: function (data) {
                         Swal.fire({
                             icon: 'success',
