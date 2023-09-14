@@ -1,69 +1,90 @@
-import db from '../common/connectDB.js'
+import modelProduct from '../models/product.js'
 
 class ProductController {
 
     // [GET] - /
-    index(req, res) {
-        db.query('SELECT * FROM products', (err, results) => {
-            if (err) console.log('Lỗi khi query')
+    async index(req, res) {
+        try {
+            const products = await modelProduct.getAll()
             const success = req.query.success === 'true'
             const loginAlert = req.query.li === 'true'
             const logoutAlert = req.query.lo === 'true'
-            res.render('product', {products: results, title: 'Home page', showAlert: success, loginAlert, logoutAlert})
-        })
+            res.render('product/product', {products, title: 'Home page', showAlert: success, loginAlert, logoutAlert})
+        } catch (error) {
+            console.error(error)
+            res.status(500).send('Internal Server Error')
+        }
     }
 
     // [Get] - /admin/product/create
     create(req, res) {
-        res.render('add-product', {title: 'Add product'})
+        res.render('product/add-product', {title: 'Add product'})
     }
 
     // [POST] - /admin/product
     store(req, res) {
-        const sql = `INSERT INTO products (name, price) VALUES ('${req.body.name}', ${req.body.price})`
-        db.query(sql, function (err) {
-            if (err) {
+        const product = {
+            name: req.body.name,
+            price: req.body.price
+        }
+
+        modelProduct.add(product)
+            .then(() => {
+                console.log('1 record inserted')
+                res.redirect('/admin/product/?success=true')
+            })
+            .catch((err) => {
                 console.error(err)
                 res.status(500).send('Error inserting record') // Handle the error gracefully
-            } else {
-                console.log('1 record inserted')
-                res.redirect('/?success=true')
-            }
-        })
+            })
     }
 
     // [Get] - /admin/product/:id/edit
     edit(req, res) {
         const id = req.params.id
-        const sql = `SELECT * FROM products WHERE id = ${id}`
-        db.query(sql, function (err, result) {
-            if (err) console.log('Lỗi khi query')
-            res.render('edit-product', {title: 'Edit product', product: result[0]})
-        })
+
+        modelProduct.getById(id)
+            .then((product) => {
+                res.render('product/edit-product', {title: 'Edit product', product: product[0]})
+            })
+            .catch((err) => {
+                console.error(err)
+                res.status(500).send('Error editing record')
+            })
     }
 
     // [PUT] - /admin/product/:id
     update(req, res) {
-        const id = req.params.id
-        const sql = `UPDATE products SET name = '${req.body.name}', price = '${req.body.price}' WHERE id = ${id}`
-        db.query(sql, function (err) {
-            if (err) throw err
-            console.log('1 record updated')
-        })
-        res.redirect('/')
+        const product = {
+            id: req.params.id,
+            name: req.body.name,
+            price: req.body.price
+        }
+        modelProduct.update(product)
+            .then(() => {
+                console.log('1 record updated')
+                res.redirect('/admin/product/?success=true')
+            })
+            .catch((err) => {
+                console.error(err)
+                res.status(500).send('Error updating record')
+            })
+
     }
+
     // [DELETE] - /admin/product/:id
     destroy(req, res) {
         const id = req.params.id
-        const sql = `DELETE FROM products WHERE id = ${id}`
-        db.query(sql, function (err) {
-            if (err) throw err
-            console.log('1 record deleted')
-        })
-        // res.redirect('/')
-        res.json({
-            'success': 'Product deleted'
-        })
+        modelProduct.delete(id)
+            .then(() => {
+                res.json({
+                    'success': 'Product deleted'
+                })
+            })
+            .catch((err) => {
+                console.error(err)
+                res.status(500).send('Error deleting record')
+            })
     }
 }
 

@@ -30,8 +30,8 @@ app.use(expressLayouts)
 app.set('layout extractScripts', true)
 
 // Static file
-app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'))
-app.use('/js', express.static(__dirname + '/public/js'))
+app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist'))
+app.use('/public', express.static(__dirname + '/public'))
 app.use('/sweetalert2', express.static(__dirname + '/node_modules/sweetalert2/dist'))
 
 // Middleware

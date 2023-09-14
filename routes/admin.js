@@ -3,9 +3,11 @@ import ProductController from '../controllers/ProductController.js'
 
 const router = express.Router()
 
-router.get('/add-product', ProductController.create)
+router.get('/product', ProductController.index)
 
-router.post('/add-product', ProductController.store)
+router.get('/product/create', ProductController.create)
+
+router.post('/product', ProductController.store)
 
 router.get('/product/:id/edit', ProductController.edit)
 

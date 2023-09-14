@@ -1,6 +1,6 @@
 <header>
-    <nav class="navbar navbar-expand-lg bg-primary">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+        <div class="container">
             <a class="navbar-brand" href="/">Expressjs</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,9 +13,11 @@
                             <i class="fa-solid fa-house"></i> Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <%= active === "/admin/add-product" ? "active" : ""%>" href="/admin/add-product">
-                            <i class="fa-solid fa-plus"></i> Add product</a>
+                        <a class="nav-link <%= active.includes("/admin/product") ? "active" : ""%>" href="/admin/product">
+                            <i class="fa-solid fa-book"></i> Products</a>
                     </li>
+                </ul>
+                <ul class="navbar-nav">
                     <% if (username) {%>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

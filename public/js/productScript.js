@@ -21,7 +21,7 @@ $(function () {
                             showConfirmButton: false,
                             timer: 1000
                         }).then(() => {
-                            window.location.href = '/'
+                            window.location.href = '/admin/product'
                         })
                         button.closest('.product-item').remove()
                     },

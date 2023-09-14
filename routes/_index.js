@@ -1,9 +1,9 @@
 import adminRouter from './admin.js'
-import shopRouter from './product.js'
 import loginRouter from './login.js'
+import homeRouter from './home.js'
 
 function route (app) {
-    app.use(shopRouter)
+    app.use(homeRouter)
 
     app.use(loginRouter)
 
