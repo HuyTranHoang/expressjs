@@ -1,4 +1,3 @@
-import db from '../common/connectDB.js'
 import jwt from 'jsonwebtoken'
 import modelUser from '../models/user.js'
 

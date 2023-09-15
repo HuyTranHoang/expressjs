@@ -1,14 +1,14 @@
 import express from 'express'
-import * as path from 'path'
+import path from 'path'
+import {fileURLToPath} from 'url'
 import methodOverride from 'method-override'
 import cookieParser  from 'cookie-parser'
-import {fileURLToPath} from 'url'
 import expressLayouts from 'express-ejs-layouts'
 
 // Import router
-import initRouter from './routes/_index.js'
-import authenticateToken from './middlewares/authenticateToken.js'
-import getUsername from './middlewares/getUsername.js'
+import initRouter from './src/routes/_index.js'
+import getUsername from './src/middlewares/getUsername.js'
+import authenticateToken from './src/middlewares/authenticateToken.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -23,7 +23,7 @@ app.use(cookieParser())
 
 // Ejs
 app.set('view engine', 'ejs')
-app.set('views', 'views')
+app.set('views', 'src/views')
 
 // Ejs layouts
 app.use(expressLayouts)
