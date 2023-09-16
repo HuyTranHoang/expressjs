@@ -1,14 +1,13 @@
-import mysql from 'mysql'
+import mysql from 'mysql2/promise.js'
 
-const connection = mysql.createConnection({
+const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'expressjs'
+    database: 'expressjs',
+    waitForConnections: true,
+    connectionLimit: 5, // Adjust this limit as needed
+    queueLimit: 0,
 })
 
-connection.connect(err => {
-    if (err) console.log('Kết nối CSDL không thành công')
-})
-
-export default connection
+export default pool

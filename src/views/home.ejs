@@ -4,7 +4,7 @@
             <% products.forEach((product, index) => { %>
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xxl-3 mb-3 mb-sm-3">
                     <div class="card" style="width: 18rem;">
-                        <img src="https://yt3.googleusercontent.com/j7klv_42absugu3dCe75LKoRE40VzhpxVGj-NJuz_i2-shLmNpUZp2Fe3t_r8MOccx95gurIeA=s900-c-k-c0x00ffffff-no-rj"
+                        <img src="<%= product.image ? '/public/images/' + product.image : 'https://yt3.googleusercontent.com/j7klv_42absugu3dCe75LKoRE40VzhpxVGj-NJuz_i2-shLmNpUZp2Fe3t_r8MOccx95gurIeA=s900-c-k-c0x00ffffff-no-rj'%>"
                             class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><%= product.name %></h5>

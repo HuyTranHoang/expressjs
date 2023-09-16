@@ -1,66 +1,60 @@
-import db from '../common/connectDB.js'
+import pool from '../common/connectDB.js'
 
 class Product {
     constructor() {
     }
 
-    getAll = () => new Promise((resolve, reject) => {
-        db.query('SELECT * FROM products', (err, results) => {
-            if (err) {
-                console.log('Lỗi khi query - getAll Product' + err)
-                reject(err)
-            } else {
-                resolve(results)
-            }
-        })
-    })
+    static getAll = async () => {
+        try {
+            const [rows] = await pool.query('SELECT * FROM products')
+            return rows
+        } catch (err) {
+            console.error('Lỗi khi query - getAll Product')
+            throw err
+        }
+    }
 
-    getById = (id) => new Promise((resolve, reject) => {
-        db.query(`SELECT * FROM products WHERE id = ${id}`, (err, results) => {
-            if (err) {
-                console.log('Lỗi khi query - getById Product' + err)
-                reject(err)
-            } else {
-                resolve(results)
-            }
-        })
-    })
+    static getById = async (id) => {
+        try {
+            const [rows] = await pool.query(`SELECT * FROM products WHERE id = ${id}`)
+            return rows
+        } catch (err) {
+            console.error('Lỗi khi query - getById Product')
+            throw err
+        }
+    }
 
-    add = (product) => new Promise((resolve, reject) => {
-        const sql = 'INSERT INTO products set ?'
-        db.query(sql, product, (err, results) => {
-            if (err) {
-                console.log('Lỗi khi query - add Product' + err)
-                reject(err)
-            } else {
-                resolve(results)
-            }
-        })
-    })
+    static add = async (product) => {
+        try {
+            const [rows] = await pool.query('INSERT INTO products set ?', product)
+            return rows
+        } catch (err) {
+            console.error('Lỗi khi query - add Product')
+            throw err
+        }
+    }
 
-    update = (product) => new Promise((resolve, reject) => {
-        const sql = `UPDATE products SET name = '${product.name}', price = '${product.price}' WHERE id = ${product.id}`
-        db.query(sql, product, (err, results) => {
-            if (err) {
-                console.log('Lỗi khi query - Update Product' + err)
-                reject(err)
-            } else {
-                resolve(results)
-            }
-        })
-    })
+    static update = async (product) => {
+        const {name, price, id} = product
+        const sql = 'UPDATE products SET name = ?, price = ? WHERE id = ?'
+        try {
+            const [rows] = await pool.query(sql, [name, price, id])
+            return rows
+        } catch (err) {
+            console.error('Lỗi khi query - update Product')
+            throw err
+        }
+    }
 
-    delete = (id) => new Promise((resolve, reject) => {
-        const sql = `DELETE FROM products WHERE id = ${id}`
-        db.query(sql, (err, results) => {
-            if (err) {
-                console.log('Lỗi khi query - delete Product' + err)
-                reject(err)
-            } else {
-                resolve(results)
-            }
-        })
-    })
+    static delete = async (id) => {
+        try {
+            const [rows] = await pool.query('DELETE FROM products WHERE id = ?', id)
+            return rows
+        } catch (err) {
+            console.error('Lỗi khi query - delete Product')
+            throw err
+        }
+    }
 }
 
-export default new Product
+export default Product

@@ -4,10 +4,11 @@ import {fileURLToPath} from 'url'
 import methodOverride from 'method-override'
 import cookieParser  from 'cookie-parser'
 import expressLayouts from 'express-ejs-layouts'
-import multer from 'multer'
 
 // Import router
 import initRouter from './src/routes/_index.js'
+
+// Import middleware
 import getUsername from './src/middlewares/getUsername.js'
 import authenticateToken from './src/middlewares/authenticateToken.js'
 
@@ -21,29 +22,6 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.use(cookieParser())
-
-const fileStorage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'public/images')
-    },
-    filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-        cb(null, file.fieldname + '-' + uniqueSuffix)
-    }
-})
-
-const fileFilter = (req, file, cb) => {
-    if (file.mimeType === 'image/png' || file.mimeType === 'image/jpg' || file.mimeType === 'image/jpeg') {
-        cb(null, true)
-    } else {
-        cb(null, false)
-    }
-}
-
-app.use(multer({
-    storage: fileStorage,
-    fileFilter
-}))
 
 // Ejs
 app.set('view engine', 'ejs')
