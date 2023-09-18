@@ -2,14 +2,13 @@ import modelProduct from '../models/product.js'
 
 class ProductController {
 
-    // [GET] - /
+    // * [GET] - /
     static index = async (req, res, next) => {
         try {
             const products = await modelProduct.getAll()
-            const success = req.query.success === 'true'
             const loginAlert = req.query.li === 'true'
-            const logoutAlert = req.query.lo === 'true'
-            res.render('product/product', {products, title: 'Home page', showAlert: success, loginAlert, logoutAlert})
+
+            res.render('product/product', {products, title: 'Home page', loginAlert})
         } catch (err) {
             // console.error(err)
             // res.status(500).send('Internal Server Error')
@@ -17,10 +16,11 @@ class ProductController {
         }
     }
 
-    // [Get] - /admin/product/create
+
+    // * [Get] - /admin/product/create
     static create = (req, res) => res.render('product/add-product', {title: 'Add product'})
 
-    // [POST] - /admin/product
+    // * [POST] - /admin/product
     static store = async (req, res, next) => {
 
         const {name, price} = req.body
@@ -34,14 +34,15 @@ class ProductController {
         try {
             const results = await modelProduct.add(product)
             console.log(results)
-            res.redirect('/admin/product/?success=true')
+            res.status(200).send('Add product successfully!')
+            // res.redirect('/admin/product/?success=true')
         } catch (err) {
             next(err)
         }
 
     }
 
-    // [Get] - /admin/product/:id/edit
+    // * [Get] - /admin/product/:id/edit
     static edit(req, res, next) {
         const id = req.params.id
 
@@ -56,23 +57,23 @@ class ProductController {
             })
     }
 
-    // [PUT] - /admin/product/:id
+    // * [PUT] - /admin/product/:id
     static update = async (req, res, next) => {
         const id = req.params.id
         const {name, price} = req.body
         const product = {id, name, price}
-
         try {
             const results = await modelProduct.update(product)
             console.log(results)
-            res.redirect('/admin/product/?success=true')
+            res.status(200).send('Update product successfully!')
+            // res.redirect('/admin/product/?success=true')
         } catch (err) {
             next(err)
         }
 
     }
 
-    // [DELETE] - /admin/product/:id
+    // * [DELETE] - /admin/product/:id
     static destroy(req, res, next) {
         const id = req.params.id
         modelProduct.delete(id)

@@ -1,8 +1,6 @@
 import pool from '../common/connectDB.js'
 
 class Product {
-    constructor() {
-    }
 
     static getAll = async () => {
         try {

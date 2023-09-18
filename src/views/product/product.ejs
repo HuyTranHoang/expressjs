@@ -37,19 +37,6 @@
     </div>
 </main>
 
-<% if (showAlert) { %>
-    <script>
-        /* global Swal */
-        Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: 'New product inserted',
-            showConfirmButton: false,
-            timer: 1500 // Close the alert after 1.5 seconds
-        })
-    </script>
-<% } %>
-
 <% if (loginAlert) { %>
     <script>
         Swal.fire({
@@ -58,26 +45,44 @@
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1500,
             timerProgressBar: true,
         })
     </script>
 <% } %>
 
-<% if (logoutAlert) { %>
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Signed out successfully',
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
+<script>
+    $(function () {
+        $('.delete-product').on('click', function () {
+            const productId = $(this).data('id')
+            const button = $(this)
+            Swal.fire({
+                title: 'Are you sure want to delete product?',
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'DELETE',
+                        url: `/admin/product/${productId}`,
+                        success: function (data) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: 'Product deleted successfully!',
+                                showConfirmButton: false,
+                                timer: 1000
+                            }).then(() => {
+                                window.location.href = '/admin/product'
+                            })
+                            button.closest('.product-item').remove()
+                        },
+                        error: function (error) {
+                            console.error('Error deleting product:', error)
+                        }
+                    })
+                }
+            })
         })
-    </script>
-<% } %>
-
-
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script type="module" src="/public/js/productScript.js"></script>
+    })
+</script>

@@ -23,7 +23,7 @@ class LoginController {
                     expiresIn: '1h' // Thời hạn của token (ví dụ: 1 giờ)
                 })
                 res.cookie('token', token, {httpOnly: true})
-                res.redirect('/?li=true')
+                res.redirect('/admin/product/?li=true')
             } else {
                 res.redirect('/login?isFailed=true')
             }

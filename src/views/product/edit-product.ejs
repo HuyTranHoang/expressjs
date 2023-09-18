@@ -5,12 +5,20 @@
             <p>New product</p>
             <hr>
 
-            <form action="/admin/product/<%= product.id%>?_method=PUT" method="POST">
-                <label class="form-label text-dark" for="name">Name</label>
-                <input class="form-control mb-3" type="text" id="name" name="name" value="<%= product.name%>"/>
+            <form action="/admin/product/<%= product.id%>?_method=PUT" method="POST" id="updateProductForm">
+                <input type="hidden" value="<%= product.id%>" id="id" name="id">
 
-                <label class="form-label text-dark" for="price">Price</label>
-                <input class="form-control mb-3" type="number" id="price" name="price" value="<%= product.price%>"/>
+                <div class="mb-3">
+                    <label class="form-label text-dark" for="name">Name</label>
+                    <input class="form-control" type="text" id="name" name="name" value="<%= product.name%>"/>
+                    <span class="text-danger label-error invisible" id="nameError">Error</span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label text-dark" for="price">Price</label>
+                    <input class="form-control" type="number" id="price" name="price" value="<%= product.price%>"/>
+                    <span class="text-danger label-error invisible" id="priceError">Error</span>
+                </div>
 
                 <button class="btn btn-primary float-end w-25" type="submit">Update</button>
             </form>
@@ -18,3 +26,72 @@
         </div>
     </div>
 </main>
+
+
+<script>
+    $(function () {
+        const form = $('#updateProductForm')
+
+        const id = $('#id').val()
+
+        const name = $('#name')
+        const nameError = $('#nameError')
+        let nameValue = name.val()
+        name.on('change', function () {
+            nameValue = name.val()
+        })
+
+        const price = $('#price')
+        const priceError = $('#priceError')
+        let priceValue = price.val()
+
+        price.on('change', function () {
+            priceValue = price.val()
+        })
+
+        form.on('submit', function (event) {
+            event.preventDefault()
+
+            let flag = 0;
+
+            nameError.addClass('invisible')
+            priceError.addClass('invisible')
+
+            if (nameValue?.length === 0 || nameValue === undefined) {
+                nameError.removeClass('invisible')
+                nameError.text(`Name can't be empty`)
+                flag++
+            }
+
+            if (priceValue?.length === 0 || priceValue === undefined) {
+                priceError.removeClass('invisible')
+                priceError.text(`Price can't be empty`)
+                flag++
+            }
+
+            if (flag === 0) {
+                $.ajax({
+                    type: 'PUT',
+                    url: `/admin/product/${id}`,
+                    data : {"name" : nameValue, "price": priceValue},
+                    success: function (data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success!',
+                            text: data,
+                            showConfirmButton: false,
+                            timer: 1000
+                        }).then(() => {
+                            window.location.href = '/admin/product'
+                        })
+                    },
+                    error: function (error) {
+                        console.error('Error updating product:', error)
+                    }
+                })
+            }
+        })
+
+    })
+
+</script>
